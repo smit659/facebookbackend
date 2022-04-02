@@ -37,7 +37,7 @@ const userModel=facbookrequestpage.model('User',userSchema);
 
 app.set('view engine', 'ejs');
 app.get('/',(req,res)=>{
-res.send("HELLO")
+res.send("<p>/signup_login=> shows signup and login page </p> <p>/myprofile/:email =>show all the post of logged in user and there is option to add new post or delete new post in this route </p><p> /individual/:email=> shows all post of selected friend (from /friendlist/:email route) </p> <p>/community => shows all the post which have public visibility </p> /friendlist/:email=> shows all his/her friends and shows all incoming friend request and show all suggestion for you to send friend request")
 }
 );
 
