@@ -46,11 +46,17 @@
     </div>
 <%for(var i=0;i<res.length;i++)
 {%>
+    <form method="post" action="/deletepost">
     <div style="margin:20px auto; width:33%;" class="card">
+        <input type="hidden" value="<%=email%>" name="email">
+        <input type="hidden" value="<%=res[i]._id%>" name="id">
+
         <div class="card-header">EMAIL:&nbsp;&nbsp; <%=email%></div>
         <div class="card-body">CONTENT: &nbsp;&nbsp;<%=res[i].content%></div>
         <div class="card-footer">VISIBILITY:&nbsp;&nbsp; <%=res[i].visibility%></div>
+        <button class="btn-danger" type="submit">Delete</button>
       </div>
+    </form>
 <%}%>
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 

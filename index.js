@@ -111,6 +111,14 @@ app.get('/friendlist/:email',(req,res)=>{
     });
 
 });
+app.post('/deletepost',(req,res)=>{
+postList.findOneAndDelete({_id:req.body.id},(err, result)=>{
+    if(result)
+    {
+        res.redirect(`/myprofile/${req.body.email}`);
+    }
+})
+});
 app.post('/removeFriend',(req,res)=>{
     console.log("s"+req.body.fname);
     friendlist.findOneAndUpdate({email:req.body.hidden},{
