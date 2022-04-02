@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>friends</title>
+</head>
+<body>
+    <h1>Friends</h1>
+   
+<% for(var i=0;i<friends.length;i++) { %>
+   <form method="post" action="/removeFriend">
+   <ul>
+    <input readonly type="hidden" id="custId" name="hidden" value=<%=email%>>
+       <li><input  readonly value= <%=friends[i]%>  name="fname"> <button type="submit">remove</button><a href="/individual/<%=friends[i]%>" >view</a></li>
+   </ul>
+   </form> 
+<%}%>
+
+    <h1>Friend's Request</h1>
+
+    <% for(var i=0;i<incoming.length;i++) { %>
+        <form method="post" action="/acceptFriend">
+        <ul>
+            <input readonly type="hidden" id="custId" name="hidden" value=<%=email%>>
+            <li><input readonly value=  <%=incoming[i]%> name="fincoming"> <button type="submit">accept</button></li>
+        </ul>
+        </form> 
+     <%}%>
+
+
+
+
+    <h1>Suggestion</h1>
+    <% for(var i=0;i<outgoing.length;i++) { %>
+        <form method="post" action="/sendFriend">
+        <ul>
+            <input readonly type="hidden" id="custId" name="hidden" value=<%=email%>>
+            <li><input readonly  value= <%=outgoing[i]%>  name="foutgoing"> <button type="submit">send friend request</button></li>
+        </ul>
+        </form> 
+     <%}%>
+</body>
+</html>
